@@ -8,19 +8,20 @@
     
         browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
         activate server
-        server-->>browser: 302 Redirect to /exampleapp/notes
+        server-->>browser: 302 Found (redirects to /notes)
         deactivate server
     
-        Note right of browser: The browser is redirected to the notes page
+        browser->>browser: Render new note form
     
-        browser->>browser: User writes a new note
-        browser->>browser: User clicks the Save button
+        Note right of browser: User writes note content and clicks Save
+    
         browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
         activate server
-        server-->>browser: 302 Redirect to /exampleapp/notes
+        server-->>browser: 302 Found (redirects to /notes)
         deactivate server
     
-        Note right of browser: The browser is redirected to the notes page again
+        browser->>browser: Refresh /notes page
+    
     </pre>
   
     <script type="module">

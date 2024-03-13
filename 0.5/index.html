@@ -2,16 +2,9 @@
 <html lang="en">
   <body>
     <pre class="mermaid">
-       sequenceDiagram
-    participant browser
-    participant server
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
-    activate server
-    server-->>browser: HTML document
-    deactivate server
-
-    Note right of browser: The browser loads the single-page app
+      graph TD;
+      A[Browser] -->|Requests| B(Single-Page App)
+      B -->|Sends data| A
     </pre>
  
     <script type="module">
