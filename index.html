@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <pre class="mermaid">
+        sequenceDiagram
+        participant browser
+        participant server
+    
+        browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+        activate server
+        server-->>browser: 302 Redirect to /exampleapp/notes
+        deactivate server
+    
+        Note right of browser: The browser is redirected to the notes page
+    
+        browser->>browser: User writes a new note
+        browser->>browser: User clicks the Save button
+        browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+        activate server
+        server-->>browser: 302 Redirect to /exampleapp/notes
+        deactivate server
+    
+        Note right of browser: The browser is redirected to the notes page again
+    </pre>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    </script>
+  </body>
+</html>
