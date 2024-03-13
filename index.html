@@ -22,6 +22,30 @@
     
         Note right of browser: The browser is redirected to the notes page again
     </pre>
+    <pre>
+        sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+    Note right of browser: The browser loads the single-page app
+    </pre>
+    <pre>
+        sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>browser: User writes a new note
+    browser->>browser: User clicks the Save button
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: 201 Created
+    deactivate server
+    </pre>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     </script>
